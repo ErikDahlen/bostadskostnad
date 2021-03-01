@@ -70,6 +70,8 @@ namespace bostadskostnad
                 (int)((_hus.Värde - _hus.Lån - _försäljningskostnadBostad)/_delaSvaretMed),
                 (int)(_hus.Aktieportfölj/_delaSvaretMed));
             Console.WriteLine("------------");
+            Console.WriteLine("Tryck på en tangent för att stänga.");
+            Console.ReadKey();
         }
         private void AngeParametrar() {
             //sätt generella parametrar
