@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            var calculateHousingCost = new CalculateHousingCost();
-            calculateHousingCost.Start();
+            var beräknaBoendekostnaden = new BeräknaBoendekostnaden();
+            beräknaBoendekostnaden.Start();
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace bostadskostnad
 {
-    class CalculateHousingCost 
+    class BeräknaBoendekostnaden 
     {
         private Hyresrätt _hyresrätten = new Hyresrätt();
         private Bostadsrätt _bostadsrätten = new Bostadsrätt();
