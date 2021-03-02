@@ -104,8 +104,8 @@ namespace bostadskostnad
             _hus.Driftkostnadsökning = 0.02M;
             _hus.Inköpspris = 3 * 1000 * 1000;
             _hus.Inköpskostnad = (int)(_hus.Inköpspris*0.025M); //kostnad för lagfart och pantbrev, 2.5% antar att pantbrev finns på en del av lånekostnaden men inte allt.
-            _hus.Lån = (int)(_bostadsrätten.Inköpspris*0.85M);
-            _hus.Värde = _bostadsrätten.Inköpspris;
+            _hus.Lån = (int)(_hus.Inköpspris*0.85M);
+            _hus.Värde = _hus.Inköpspris;
             _hus.Ränta = 0.014M;
             _hus.FastAmmortering = 3000;
             _hus.AmmorteraEnligtAmmorteringsreglerna = true;
