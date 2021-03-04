@@ -13,6 +13,7 @@ namespace bostadskostnad
         private decimal _värdeökningHus;
         private int _delaSvaretMed;
         private int _försäljningskostnadBostad;
+        private decimal _hävstångAktier;
         public void Start() {
             AngeParametrar();
 
@@ -43,15 +44,15 @@ namespace bostadskostnad
                 var högstaÅrskostnad = HögstaÅrskostnaden();
 
                 //fixa med hyresgästens portfölj
-                _hyresrätten.Aktieportfölj = _hyresrätten.Aktieportfölj*(1+_värdeökningAktier) + högstaÅrskostnad - _hyresrätten.Årskostnad();
+                _hyresrätten.Aktieportfölj = _hyresrätten.Aktieportfölj*(1+(_värdeökningAktier*(1+_hävstångAktier))) + högstaÅrskostnad - _hyresrätten.Årskostnad();
 
                 //fixa med bostadsrättens portfölj
                 _bostadsrätten.Värde = _bostadsrätten.Värde*(1+_värdeökningBostadsrätt);
-                _bostadsrätten.Aktieportfölj = _bostadsrätten.Aktieportfölj*(1+_värdeökningAktier) + högstaÅrskostnad - _bostadsrätten.Årskostnad();
+                _bostadsrätten.Aktieportfölj = _bostadsrätten.Aktieportfölj*(1+(_värdeökningAktier*(1+_hävstångAktier))) + högstaÅrskostnad - _bostadsrätten.Årskostnad();
 
                 //fixa med husets portfölj
                 _hus.Värde = _hus.Värde*(1+_värdeökningHus);
-                _hus.Aktieportfölj = _hus.Aktieportfölj*(1+_värdeökningAktier) + högstaÅrskostnad - _hus.Årskostnad();
+                _hus.Aktieportfölj = _hus.Aktieportfölj*(1+(_värdeökningAktier*(1+_hävstångAktier))) + högstaÅrskostnad - _hus.Årskostnad();
             }
             Console.WriteLine("------------");
             Console.WriteLine("Totala lägsta bostadsutgifter för hyresrätt under {0} år är: {1}", _antalÅr, (int)(hyresKostnad/_delaSvaretMed));
@@ -77,6 +78,7 @@ namespace bostadskostnad
             //sätt generella parametrar
             _antalÅr = 20;
             _värdeökningAktier = 0.07M;
+            _hävstångAktier = 0.00M; //ange hur många procents hävstång man tar på sina aktier
             _värdeökningBostadsrätt = 0.04M;
             _värdeökningHus = 0.04M;
             _delaSvaretMed = 1000; //använd gärna 1000 eller 1000*1000 för att få beloppet i tusental eller i miljoner
