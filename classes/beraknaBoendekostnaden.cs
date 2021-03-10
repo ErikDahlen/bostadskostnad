@@ -54,6 +54,7 @@ namespace bostadskostnad
                 _hus.Värde = _hus.Värde*(1+_värdeökningHus);
                 _hus.Aktieportfölj = _hus.Aktieportfölj*(1+(_värdeökningAktier*(1+_hävstångAktier))) + högstaÅrskostnad - _hus.Årskostnad();
             }
+            //skriv ut svaren
             Console.WriteLine("------------");
             Console.WriteLine("Totala lägsta bostadsutgifter för hyresrätt under {0} år är: {1}", _antalÅr, (int)(hyresKostnad/_delaSvaretMed));
             Console.WriteLine("Totala lägsta bostadsutgifter för bostadsrätt under {0} år är: {1}", _antalÅr, (int)(bostadsrättKostnad/_delaSvaretMed));
@@ -71,6 +72,7 @@ namespace bostadskostnad
                 (int)((_hus.Värde - _hus.Lån - _försäljningskostnadBostad)/_delaSvaretMed),
                 (int)(_hus.Aktieportfölj/_delaSvaretMed));
             Console.WriteLine("------------");
+            //gör så programmet inte stänger ner sig själv
             Console.WriteLine("Tryck på en tangent för att stänga.");
             Console.ReadKey();
         }
@@ -81,7 +83,7 @@ namespace bostadskostnad
             _hävstångAktier = 0.00M; //ange hur många procents hävstång man tar på sina aktier
             _värdeökningBostadsrätt = 0.04M;
             _värdeökningHus = 0.04M;
-            _delaSvaretMed = 1000; //använd gärna 1000 eller 1000*1000 för att få beloppet i tusental eller i miljoner
+            _delaSvaretMed = 1000; //använd gärna 1, 1000 eller 1000*1000 för att få beloppet i kronor, tusental eller i miljoner
             _försäljningskostnadBostad = 80*1000; //exempelvis mäklare, fina till bostaden osv.
 
             //sätt parametrar för hyresrätten
